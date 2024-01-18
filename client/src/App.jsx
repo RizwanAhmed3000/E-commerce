@@ -1,5 +1,4 @@
-import './App.css';
-// import { Route, BrowserRouter, Routes } from "react-router-dom";
+import './App.scss';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import Products from './Pages/Products/Products';
