@@ -33,7 +33,15 @@ const Footer = () => {
                     <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero voluptatem ut ab, explicabo nulla sequi repudiandae culpa asperiores officia saepe repellendus delectus minus quibusdam voluptate ipsa nostrum, atque at velit.</span>
                 </div>
             </div>
-            <div className="bootom"></div>
+            <div className="bottom">
+                <div className="left">
+                    <span className="logo">E-Commerce</span>
+                    <span className="copyright">© Copyright 2024. All Rights Reserved</span>
+                </div>
+                <div className="right">
+                    <img src="/images/payment.png" alt="" />
+                </div>
+            </div>
         </div>
     )
 }
