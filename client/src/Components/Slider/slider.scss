@@ -1,0 +1,48 @@
+.slider{
+    height: calc(100vh - 90px);
+    width: 98.8vw;
+    position: relative;
+    overflow: hidden;
+
+    .container{
+        width: 300vw;
+        height: 100%;
+        display: flex;
+        transition: all 1s ease;
+        // transform: translateX(-100vw);
+
+        img{
+            width: 100vw;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .icons{
+        width: fit-content;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        margin: auto;
+        display: flex;
+        gap: 10px;
+
+        .icon{
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 120ms ease;
+
+            &:hover{
+                background-color: white;
+                border: none;
+            }
+        }
+    }
+}
