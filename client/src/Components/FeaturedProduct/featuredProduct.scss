@@ -1,1 +1,21 @@
-.fProduct{}
+.fProduct {
+    margin: 100px 150px;
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+
+        h1 {
+            flex: 2;
+            font-size: 20px;
+        }
+
+        p {
+            flex: 4;
+            color: gray;
+            font-size: 12px;
+        }
+    }
+}
