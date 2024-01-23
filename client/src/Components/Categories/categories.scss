@@ -38,6 +38,12 @@
             background-color: #fff;
             text-transform: uppercase;
             font-weight: 500;
+            transition: all 150ms ease;
+
+            &:hover{
+                background-color: lightblue;
+                border-radius: 5px;
+            }
         }
 
         img {
