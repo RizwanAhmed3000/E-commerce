@@ -1,3 +1,51 @@
 .contact{
-    
+    // border: 1px solid green;
+    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 10px;
+
+        span{
+            font-weight: 700;
+            color: rgb(49, 49, 49);
+            // flex: 1;
+        }
+
+        .mail{
+            // flex: 2;
+            input{
+                border: none;
+                outline: none;
+                padding: 5px 10px;
+            }
+            
+            button{
+                margin-left: 5px;
+                padding: 5px 10px;
+                border: none;
+                cursor: pointer;
+                background-color: white;
+                font-weight: 500;
+                color: rgb(49, 49, 49);
+
+                &:hover{
+                    background-color: lightcyan;
+                }
+            }
+        }
+
+        .icons{
+            // flex: 1;
+            display: flex;
+            color: rgb(49, 49, 49);
+            gap: 10px;
+        }
+    }
 }
