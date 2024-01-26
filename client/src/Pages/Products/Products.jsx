@@ -1,3 +1,4 @@
+import List from '../../Components/List/List'
 import './products.scss'
 
 const Products = () => {
@@ -7,19 +8,19 @@ const Products = () => {
                 <div className="filterItem">
                     <h2>Product Categories</h2>
                     <div className="inputItem">
-                        <input type="checkbox" id="1" value={1}/>
+                        <input type="checkbox" id="1" value={1} />
                         <label htmlFor="1">
                             Shoes
                         </label>
                     </div>
                     <div className="inputItem">
-                        <input type="checkbox" id="2" value={2}/>
+                        <input type="checkbox" id="2" value={2} />
                         <label htmlFor="2">
                             Bags
                         </label>
                     </div>
                     <div className="inputItem">
-                        <input type="checkbox" id="3" value={3}/>
+                        <input type="checkbox" id="3" value={3} />
                         <label htmlFor="3">
                             Coats
                         </label>
@@ -29,7 +30,7 @@ const Products = () => {
                     <h2>Filter by price</h2>
                     <div className="inputItem">
                         <span>0</span>
-                        <input type="range" min={0} max={1000}/>
+                        <input type="range" min={0} max={1000} />
                         <span>1000</span>
                     </div>
                 </div>
@@ -49,7 +50,10 @@ const Products = () => {
                     </div>
                 </div>
             </div>
-            <div className="right"></div>
+            <div className="right">
+                <img src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" className='catImg' />
+                <List />
+            </div>
         </div>
     )
 }
