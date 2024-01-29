@@ -7,29 +7,29 @@ const Categories = () => {
             <div className="col">
                 <div className="row">
                     <img src="/images/Accessories.jpg" alt="" />
-                    <button>
-                        <Link className='link' to='/products/1'>
+                    <Link className='link' to='/products/1'>
+                        <button>
                             Sale
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
                 <div className="row">
                     <img src="/images/Women.jpg" alt="" />
-                    <button>
-                        <Link className='link' to='/products/2'>
+                    <Link className='link' to='/products/2'>
+                        <button>
                             Women
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="col">
                 <div className="row">
                     <img src="/images/NewArrivals.jpg" alt="" />
-                    <button>
-                        <Link className='link' to='/products/3'>
+                    <Link className='link' to='/products/3'>
+                        <button>
                             New Arrivals
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="col col-l">
@@ -37,31 +37,31 @@ const Categories = () => {
                     <div className="col">
                         <div className="row">
                             <img src="/images/Mens.jpg" alt="" />
-                            <button>
-                                <Link className='link' to='/products/4'>
+                            <Link className='link' to='/products/4'>
+                                <button>
                                     Mens
-                                </Link>
-                            </button>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="col">
                         <div className="row">
                             <img src="/images/Shoes.jpg" alt="" />
-                            <button>
-                                <Link className='link' to='/products/5'>
+                            <Link className='link' to='/products/5'>
+                                <button>
                                     Shoes
-                                </Link>
-                            </button>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <img src="/images/bags.jpg" alt="" />
-                    <button>
-                        <Link className='link' to='/products/6'>
+                    <Link className='link' to='/products/6'>
+                        <button>
                             Bags
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
