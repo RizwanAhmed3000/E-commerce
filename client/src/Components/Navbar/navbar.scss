@@ -2,13 +2,14 @@
     height: 80px;
     position: relative;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .wrapper {
-        min-width: 90%;
-        position: fixed;
-        left: 50%;
+        width: 90%;
+        position: sticky;
         top: 10px;
-        transform: translateX(-50%);
         border-radius: 50px;
         padding: 10px 30px;
         display: flex;
