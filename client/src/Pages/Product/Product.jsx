@@ -26,7 +26,7 @@ const Product = () => {
             </div>
             <div className="right">
                 <h2 className='title'>Long Sleeves Shirt</h2>
-                <p className='price'>$ 45</p>
+                <span className='price'>$45</span>
                 <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam inventore, praesentium suscipit libero est molestias quos. Quo ipsa laborum aliquid, quidem ducimus adipisci rem autem fugit, consequuntur voluptatum totam! Facere!</p>
                 <div className="quantity">
                     <button onClick={() => setQuantity(prev => prev === 1 ? 1 : prev - 1)}>-</button>

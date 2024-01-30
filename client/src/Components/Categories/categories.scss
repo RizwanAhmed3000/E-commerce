@@ -21,8 +21,9 @@
         gap: 10px;
         position: relative;
         overflow: hidden;
+        width: 100%;
 
-        button {
+        .link {
             position: absolute;
             min-width: 100px;
             width: fit-content;
@@ -39,8 +40,11 @@
             text-transform: uppercase;
             font-weight: 500;
             transition: all 150ms ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            &:hover{
+            &:hover {
                 background-color: lightblue;
                 border-radius: 5px;
             }
