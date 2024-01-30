@@ -45,7 +45,19 @@ const Product = () => {
                         <AccountBalanceWalletIcon /> ADD TO COMPARE
                     </div>
                 </div>
-
+                <div className="info">
+                    <span>Vendor: name</span>
+                    <span>Product type: name</span>
+                    <span>Tags: name</span>
+                </div>
+                <hr />
+                <div className="details">
+                    <span>Description</span>
+                    <hr />
+                    <span>Additional information</span>
+                    <hr />
+                    <span>FAQ</span>
+                </div>
             </div>
         </div>
     )
