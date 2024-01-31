@@ -73,13 +73,13 @@ const Navbar = () => {
                         Stores
                     </div>
                     <div className="icons">
-                        <div className="item">
+                        <div className="item none">
                             <SearchIcon className='icon' />
                         </div>
-                        <div className="item">
+                        <div className="item none">
                             <PersonOutlineOutlinedIcon className='icon' />
                         </div>
-                        <div className="item">
+                        <div className="item none">
                             <FavoriteBorderOutlinedIcon className='icon' />
                         </div>
                         <div className="item">

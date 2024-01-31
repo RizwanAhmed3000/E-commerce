@@ -7,10 +7,26 @@
         // margin: 100px 10px;
     }
 
+    @media (max-width: 850px) {
+        padding: 100px 20px;
+    }
+
+    @media (max-width: 560px) {
+        padding: 100px 8px;
+    }
+
     .top {
         display: flex;
         justify-content: space-between;
         gap: 50px;
+
+        @media (max-width: 850px) {
+            gap: 20px;
+        }
+
+        @media (max-width: 560px) {
+            flex-direction: column;
+        }
 
         .item {
             flex: 1;
@@ -19,6 +35,11 @@
             gap: 10px;
             text-align: justify;
             font-size: 12px;
+
+            @media (max-width: 850px) {
+                flex: 1;
+                width: 100%;
+            }
 
             h1 {
                 font-size: 15px;
@@ -38,6 +59,10 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 50px;
+
+        @media (max-width: 850px) {
+            flex-direction: column;
+        }
 
         .left {
             display: flex;

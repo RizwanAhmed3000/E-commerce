@@ -1,32 +1,37 @@
-.contact{
+.contact {
     // border: 1px solid green;
     background-color: lightgreen;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .wrapper{
+    .wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 40px;
         padding: 10px;
 
-        span{
+        @media (max-width: 850px) {
+            flex-wrap: wrap;
+        }
+
+        span {
             font-weight: 700;
             color: rgb(49, 49, 49);
             // flex: 1;
         }
 
-        .mail{
+        .mail {
+
             // flex: 2;
-            input{
+            input {
                 border: none;
                 outline: none;
                 padding: 5px 10px;
             }
-            
-            button{
+
+            button {
                 margin-left: 5px;
                 padding: 5px 10px;
                 border: none;
@@ -35,13 +40,13 @@
                 font-weight: 500;
                 color: rgb(49, 49, 49);
 
-                &:hover{
+                &:hover {
                     background-color: lightcyan;
                 }
             }
         }
 
-        .icons{
+        .icons {
             // flex: 1;
             display: flex;
             color: rgb(49, 49, 49);
