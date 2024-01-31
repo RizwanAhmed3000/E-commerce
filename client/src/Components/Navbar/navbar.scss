@@ -28,7 +28,8 @@
             font-size: 14px;
             cursor: pointer;
 
-            @media (max-width: 1024px) {
+
+            @media (max-width: 1304px) {
                 font-size: 12px;
             }
 
@@ -63,16 +64,31 @@
             align-items: center;
             gap: 25px;
 
-            @media (max-width: 1024px) {
+            .drawer {
+                display: none;
+            }
+
+            @media (max-width: 1300px) {
                 gap: 10px;
+            }
+
+            @media (max-width: 850px) {
+                .item {
+                    display: none;
+                }
+
+                .drawer {
+                    display: block;
+                }
             }
         }
 
         .center {
             display: flex;
             font-size: 20px;
+            align-items: center;
 
-            @media (max-width: 1024px) {
+            @media (max-width: 1300px) {
                 .logo {
                     font-size: 17px;
                 }
@@ -84,8 +100,28 @@
             align-items: center;
             gap: 25px;
 
-            @media (max-width: 1024px) {
+            .drawer {
+                display: none;
+            }
+
+            .icons{
+                display: flex;
+                align-items: center;
                 gap: 10px;
+            }
+
+            @media (max-width: 1300px) {
+                gap: 10px;
+            }
+
+            @media (max-width: 850px) {
+                .item {
+                    display: none;
+                }
+
+                .drawer {
+                    display: block;
+                }
             }
         }
     }

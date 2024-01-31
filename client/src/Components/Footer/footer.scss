@@ -1,5 +1,11 @@
 .footer {
-    margin: 100px 150px 20px 150px;
+    padding: 100px 150px 20px 150px;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+        padding: 100px 50px;
+        // margin: 100px 10px;
+    }
 
     .top {
         display: flex;
@@ -50,7 +56,7 @@
         }
 
         .right {
-            img{
+            img {
                 height: 50px;
             }
         }

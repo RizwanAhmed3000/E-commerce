@@ -7,6 +7,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Cart from '../Cart/Cart';
+import BasicMenu from '../Menu/Menu';
 
 const Navbar = () => {
 
@@ -16,6 +17,9 @@ const Navbar = () => {
         <div className='navbar'>
             <div className="wrapper">
                 <div className="left">
+                    <div className="drawer">
+                        <BasicMenu side='Categories' />
+                    </div>
                     <div className="item">
                         <img src="/images/flag.png" alt="" />
                         <KeyboardArrowDownOutlinedIcon />
@@ -53,6 +57,9 @@ const Navbar = () => {
                     </h2>
                 </div>
                 <div className="right">
+                    <div className="drawer">
+                        <BasicMenu side='Menu' />
+                    </div>
                     <div className="item">
                         Home
                     </div>
@@ -65,19 +72,21 @@ const Navbar = () => {
                     <div className="item">
                         Stores
                     </div>
-                    <div className="item">
-                        <SearchIcon className='icon' />
-                    </div>
-                    <div className="item">
-                        <PersonOutlineOutlinedIcon className='icon' />
-                    </div>
-                    <div className="item">
-                        <FavoriteBorderOutlinedIcon className='icon' />
-                    </div>
-                    <div className="item">
-                        <div className="cartIcon" onClick={() => setOpenCart(!openCart)}>
-                            <ShoppingCartOutlinedIcon className='icon' />
-                            <span className='counter'>0</span>
+                    <div className="icons">
+                        <div className="item">
+                            <SearchIcon className='icon' />
+                        </div>
+                        <div className="item">
+                            <PersonOutlineOutlinedIcon className='icon' />
+                        </div>
+                        <div className="item">
+                            <FavoriteBorderOutlinedIcon className='icon' />
+                        </div>
+                        <div className="item">
+                            <div className="cartIcon" onClick={() => setOpenCart(!openCart)}>
+                                <ShoppingCartOutlinedIcon className='icon' />
+                                <span className='counter'>0</span>
+                            </div>
                         </div>
                     </div>
                 </div>
