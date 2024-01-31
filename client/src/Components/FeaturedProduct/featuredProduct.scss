@@ -43,6 +43,10 @@
         align-items: center;
         flex-wrap: wrap;
 
+        @media (max-width: 850px) {
+            justify-content: space-around;
+        }
+
         @media (max-width: 625px) {
             flex-direction: column;
         }
