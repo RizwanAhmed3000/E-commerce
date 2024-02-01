@@ -20,7 +20,7 @@ app.use(cors())
 
 // =======================ROUTES=======================//
 
-app.use('api/auth', authRoutes)
+app.use('/api/auth', authRoutes)
 
 // =======================LISTENING TO THE SERVER=======================//
 app.listen(PORT, () => {
