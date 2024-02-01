@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { connect } from './Config/connectDB.js';
+import authRoutes from './Routes/authRoutes.js';
 
 // ======================CONFIGURING ENV AND EXPRESS==================//
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(cors())
 
 // =======================ROUTES=======================//
 
+app.use('api/auth', authRoutes)
 
 // =======================LISTENING TO THE SERVER=======================//
 app.listen(PORT, () => {
