@@ -22,18 +22,6 @@ export default function BasicMenu({ side }) {
         setAnchorEl(null);
     };
 
-    // const theme = createTheme({
-    //     palette: {
-    //         primary: {
-    //             main: "#46AD8D",
-    //             contrastText: "#fff" //button text white instead of black
-    //         },
-    //         background: {
-    //             default: "#394764"
-    //         }
-    //     }
-    // });
-
     return (
         <div>
             <Button
