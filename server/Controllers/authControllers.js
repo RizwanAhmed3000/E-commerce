@@ -1,5 +1,6 @@
 import { User } from "../Models/User.js"
 import bcryptjs from "bcryptjs"
+import CryptoJS from "crypto-js"
 
 
 const { genSalt, hash } = bcryptjs
@@ -8,14 +9,19 @@ const { genSalt, hash } = bcryptjs
 export const register = async (req, res, next) => {
     try {
 
-        //==========HASHING PASSWORD===================//
-        const salt = await genSalt(12);
-        const hashPassword = await hash(req.body.password, salt);
+        //==========HASHING PASSWORD USING BCRYPTJS===================//
+        // const salt = await genSalt(12);
+        // const hashPassword = await hash(req.body.password, salt);
+
+        //==========HASHING PASSWORD USING CRYPTOJS===================//
+        var encryptedPassword = CryptoJS.AES.encrypt(req.body.password, process.env.CRYPTOJS_KEY).toString();
+        // console.log(encryptedPassword)
 
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
-            password: hashPassword,
+            // password: hashPassword,// bcryptJS
+            password: encryptedPassword, // CryptoJS
             profileImage: req.body?.profileImage,
             isAdmin: req.body.isAdmin,
         });
