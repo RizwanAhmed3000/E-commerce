@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { connect } from './Config/connectDB.js';
 import authRoutes from './Routes/authRoutes.js';
+import { customError } from './Utils/customErrorMiddleware.js';
 
 // ======================CONFIGURING ENV AND EXPRESS==================//
 dotenv.config();
@@ -21,6 +22,10 @@ app.use(cors())
 // =======================ROUTES=======================//
 
 app.use('/api/auth', authRoutes)
+
+//=======================ERROR MIDDLEWARE=======================//
+
+app.use(customError)
 
 // =======================LISTENING TO THE SERVER=======================//
 app.listen(PORT, () => {
