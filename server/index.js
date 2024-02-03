@@ -7,6 +7,7 @@ import cors from 'cors';
 import { connect } from './Config/connectDB.js';
 import authRoutes from './Routes/authRoutes.js';
 import { customError } from './Utils/customErrorMiddleware.js';
+import userRoutes from './Routes/userRoutes.js';
 
 // ======================CONFIGURING ENV AND EXPRESS==================//
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(cors())
 // =======================ROUTES=======================//
 
 app.use('/api/auth', authRoutes)
+app.use('/api/user', userRoutes)
 
 //=======================ERROR MIDDLEWARE=======================//
 
