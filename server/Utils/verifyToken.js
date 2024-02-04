@@ -32,3 +32,13 @@ export const verifyUser = async (req, res, next) => {
         }
     })
 }
+
+export const verifyAdimn = async (req, res, next) => {
+    verifyToken(req, res, () => {
+        if (req.user.isAdmin) {
+            next()
+        } else {
+            return next(createError(403, "You are not authorized!!"))
+        }
+    })
+}
