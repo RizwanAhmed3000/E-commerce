@@ -1,6 +1,6 @@
 import express from 'express';
-import { deleteUser, getAllUser, getUser, updateUser } from '../Controllers/userControllers.js';
-import { verifyAdimn, verifyUser } from '../Utils/verifyToken.js';
+import { deleteUser, getAllUser, getUser, updateUser, userStats } from '../Controllers/userControllers.js';
+import { verifyAdmin, verifyUser } from '../Utils/verifyToken.js';
 
 const userRoutes = express.Router();
 
@@ -11,10 +11,13 @@ userRoutes.put('/:userId', verifyUser, updateUser)
 userRoutes.delete('/:userId', verifyUser, deleteUser)
 
 //======================= GET A USER ======================//
-userRoutes.get('/find/:userId', verifyAdimn, getUser)
+userRoutes.get('/find/:userId', verifyAdmin, getUser)
 
 //======================= GET ALL USERS ======================//
-userRoutes.get('/find', verifyAdimn, getAllUser)
+userRoutes.get('/find', verifyAdmin, getAllUser)
+
+//======================= USERS STATS ======================//
+userRoutes.get('/stats', verifyAdmin, userStats)
 
 //======================= LOGIN USER ======================//
 // userRoutes.post('/login', login)
