@@ -93,6 +93,8 @@ export const getAllUser = async (req, res, next) => {
     }
 }
 
+//GET USERS STATS (NO. OF USERS PER MONTHS)
+// //user/stats
 export const userStats = async (req, res, next) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1))
