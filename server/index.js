@@ -9,6 +9,7 @@ import authRoutes from './Routes/authRoutes.js';
 import { customError } from './Utils/customErrorMiddleware.js';
 import userRoutes from './Routes/userRoutes.js';
 import productRoutes from './Routes/productsRoutes.js';
+import cartRoutes from './Routes/cartRoutes.js';
 
 // ======================CONFIGURING ENV AND EXPRESS==================//
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(cors())
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/product', productRoutes)
+app.use('/api/cart', cartRoutes)
 
 //=======================ERROR MIDDLEWARE=======================//
 
