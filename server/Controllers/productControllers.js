@@ -19,122 +19,78 @@ export const createProduct = async (req, res, next) => {
 
 // //UPDATE USER
 // // /user/:userId
-// export const updateUser = async (req, res, next) => {
-//     // console.log(req.user)
-//     if (req.user._id === req.params.userId) {
-//         if (req.body.password) {
-//             try {
-//                 const encryptedPassword = CryptoJS.AES.encrypt(req.body.password, process.env.CRYPTOJS_KEY).toString();
-//                 req.body.password = encryptedPassword;
-//             } catch (error) {
-//                 next(error)
-//             }
-//         }
-//         try {
-//             const updatedUser = await User.findByIdAndUpdate(req.params.userId, {
-//                 $set: req.body
-//             }, { new: true });
-//             const { password, ...other } = updatedUser._doc;
-//             res.status(200).send({
-//                 status: "Successfull",
-//                 message: "User Updated Successfully",
-//                 data: other,
-//             });
-//         } catch (error) {
-//             next(error)
-//         }
-//     } else {
-//         return res.status(401).send({
-//             status: "Failed",
-//             message: "Failed to Update this user",
-//         })
-//     }
-// }
+export const updateProduct = async (req, res, next) => {
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(req.params.productId, {
+            $set: req.body
+        }, { new: true });
+        res.status(200).send({
+            status: "Successfull",
+            message: "Product Updated Successfully",
+            data: updatedProduct,
+        });
+    } catch (error) {
+        next(error)
+    }
+}
 
 // //DELETE USER
 // // /user/:userId
 
-// export const deleteUser = async (req, res, next) => {
-//     try {
-//         await User.findByIdAndDelete(req.params.userId);
-//         res.status(200).send({
-//             status: "Successfull",
-//             message: "User deleted Successfully",
-//         });
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+export const deleteProduct = async (req, res, next) => {
+    try {
+        await Product.findByIdAndDelete(req.params.productId);
+        res.status(200).send({
+            status: "Successfull",
+            message: "Product deleted Successfully",
+        });
+    } catch (error) {
+        next(error)
+    }
+}
 
 // //GET USER
 // // /user/find/:userId
 
-// export const getUser = async (req, res, next) => {
-//     try {
-//         const user = await User.findById(req.params.userId);
-//         !user && res.status(404).send({
-//             status: "Failed",
-//             message: "User not found",
-//         });
-//         const { password, ...other } = user._doc;
-//         res.status(200).send({
-//             status: "Successfull",
-//             message: "User Found",
-//             data: other
-//         });
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+export const getProduct = async (req, res, next) => {
+    try {
+        const product = await Product.findById(req.params.productId);
+        !product && res.status(404).send({
+            status: "Failed",
+            message: "Product not found",
+        });
+        res.status(200).send({
+            status: "Successfull",
+            message: "Product Found",
+            data: product
+        });
+    } catch (error) {
+        next(error)
+    }
+}
 
-// //GET USER
-// // /user/find
-// export const getAllUser = async (req, res, next) => {
-//     const query = req.query.new;
-//     try {
-//         const users = query ? await User.find().sort({ _id: -1 }).limit(5) : await User.find();
-//         let fillteredUsers = [];
-//         users.forEach((user) => {
-//             const { password, ...others } = user._doc;
-//             fillteredUsers.push(others)
-//         })
-//         res.status(200).send({
-//             status: "Successfull",
-//             message: "Users Found",
-//             data: fillteredUsers
-//         });
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+//GET USER
+// /user/find
+export const getAllProducts = async (req, res, next) => {
+    const queryNew = req.query.new;
+    const queryCategory = req.query.category;
+    try {
 
-// //GET USERS STATS (NO. OF USERS PER MONTHS)
-// // //user/stats
-// export const userStats = async (req, res, next) => {
-//     const date = new Date();
-//     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1))
+        let products;
+        if (queryNew) {
+            products = await Product.find().sort({ createdAt: -1 }).limit(5)
+        } else if (queryCategory) {
+            products = await Product.find({ categories: { $in: [queryCategory] } })
+        } else {
+            products = await Product.find();
+        }
 
-//     try {
-//         const data = await User.aggregate([
-//             {
-//                 $match: { createdAt: { $gte: lastYear } },
-//             },
-//             {
-//                 $project: { month: { $month: "$createdAt" } }
-//             },
-//             {
-//                 $group: {
-//                     _id: "$month",
-//                     total: { $sum: 1 }
-//                 }
-//             }
-//         ])
-//         res.status(200).send({
-//             status: "Successfull",
-//             message: "Users Stats",
-//             data: data
-//         });
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+        res.status(200).send({
+            status: "Successfull",
+            message: "Products Found",
+            data: products
+        });
+    } catch (error) {
+        next(error)
+    }
+}

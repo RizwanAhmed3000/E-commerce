@@ -1,28 +1,23 @@
 import express from 'express';
 import { verifyAdmin, verifyUser } from '../Utils/verifyToken.js';
-import { createProduct } from '../Controllers/productControllers.js';
+import { createProduct, deleteProduct, getAllProducts, getProduct, updateProduct } from '../Controllers/productControllers.js';
 
 const productRoutes = express.Router();
 
 //======================= CREATE PRODUCT ======================//
 productRoutes.post('/', verifyAdmin, createProduct)
 
-//======================= UPDATE USER ======================//
-// productRoutes.put('/:userId', verifyUser, updateUser)
+//======================= UPDATE PRODUCT ======================//
+productRoutes.put('/:productId', verifyAdmin, updateProduct)
 
-//======================= DELETE USER ======================//
-// productRoutes.delete('/:userId', verifyUser, deleteUser)
+//======================= DELETE PRODUCT ======================//
+productRoutes.delete('/:productId', verifyAdmin, deleteProduct)
 
-//======================= GET A USER ======================//
-// productRoutes.get('/find/:userId', verifyAdmin, getUser)
+//======================= GET A PRODUCT ======================//
+productRoutes.get('/find/:productId', getProduct)
 
-//======================= GET ALL USERS ======================//
-// productRoutes.get('/find', verifyAdmin, getAllUser)
+//======================= GET ALL PRODUCTS ======================//
+productRoutes.get('/find', getAllProducts)
 
-//======================= USERS STATS ======================//
-// productRoutes.get('/stats', verifyAdmin, userStats)
-
-//======================= LOGIN USER ======================//
-// userRoutes.post('/login', login)
 
 export default productRoutes
