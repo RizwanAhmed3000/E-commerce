@@ -1,6 +1,6 @@
 import express from 'express';
 import { verifyAdmin, verifyToken, verifyUser } from '../Utils/verifyToken.js';
-import { createCart, deleteCart, updateCart } from '../Controllers/cartControllers.js';
+import { createCart, deleteCart, getCart, updateCart } from '../Controllers/cartControllers.js';
 
 const cartRoutes = express.Router();
 
@@ -14,7 +14,7 @@ cartRoutes.put('/:cartId', verifyUser, updateCart)
 cartRoutes.delete('/:cartId', verifyUser, deleteCart)
 
 //======================= GET A PRODUCT ======================//
-// cartRoutes.get('/find/:productId', getProduct)
+cartRoutes.get('/find/:userId', verifyUser, getCart)
 
 //======================= GET ALL PRODUCTS ======================//
 // cartRoutes.get('/find', getAllProducts)

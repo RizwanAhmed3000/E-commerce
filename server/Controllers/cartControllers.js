@@ -49,25 +49,25 @@ export const deleteCart = async (req, res, next) => {
     }
 }
 
-// //GET USER
-// // /user/find/:userId
+//GET USER
+// /user/find/:userId
 
-// export const getProduct = async (req, res, next) => {
-//     try {
-//         const product = await Product.findById(req.params.productId);
-//         !product && res.status(404).send({
-//             status: "Failed",
-//             message: "Product not found",
-//         });
-//         res.status(200).send({
-//             status: "Successfull",
-//             message: "Product Found",
-//             data: product
-//         });
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+export const getCart = async (req, res, next) => {
+    try {
+        const cart = await Cart.findOne({ userId: req.params.userId });
+        !cart && res.status(404).send({
+            status: "Failed",
+            message: "Cart not found",
+        });
+        res.status(200).send({
+            status: "Successfull",
+            message: "Cart Found",
+            data: cart
+        });
+    } catch (error) {
+        next(error)
+    }
+}
 
 //GET USER
 // /user/find
