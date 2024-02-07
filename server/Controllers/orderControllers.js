@@ -1,14 +1,14 @@
-import { Cart } from "../Models/Cart.js";
+import {Order} from '../Models/Order.js'
 
-//====================  NEW PRODUCT =========================//
-export const createCart = async (req, res, next) => {
-    const newCart = new Cart(req.body);
+//====================  NEW ORDER =========================//
+export const createOrder = async (req, res, next) => {
+    const newOrder = new Order(req.body);
     try {
-        const saveCart = await newCart.save();
+        const saveOrder = await newOrder.save();
         res.status(200).send({
             status: "Successfull",
-            message: "Cart Added Successfully",
-            data: saveCart,
+            message: "Order Added Successfully",
+            data: saveOrder,
         });
     } catch (error) {
         next(error)
@@ -18,15 +18,15 @@ export const createCart = async (req, res, next) => {
 
 //UPDATE USER
 // /user/:userId
-export const updateCart = async (req, res, next) => {
+export const updateOrder = async (req, res, next) => {
     try {
-        const updatedCart = await Cart.findByIdAndUpdate(req.params.cartId, {
+        const updatedOrder = await Order.findByIdAndUpdate(req.params.cartId, {
             $set: req.body
         }, { new: true });
         res.status(200).send({
             status: "Successfull",
-            message: "Cart Updated Successfully",
-            data: updatedCart,
+            message: "Order Updated Successfully",
+            data: updatedOrder,
         });
     } catch (error) {
         next(error)
@@ -36,12 +36,12 @@ export const updateCart = async (req, res, next) => {
 //DELETE USER
 // /user/:userId
 
-export const deleteCart = async (req, res, next) => {
+export const deleteOrder = async (req, res, next) => {
     try {
-        await Cart.findByIdAndDelete(req.params.cartId);
+        await Order.findByIdAndDelete(req.params.cartId);
         res.status(200).send({
             status: "Successfull",
-            message: "Cart deleted Successfully",
+            message: "Order deleted Successfully",
         });
     } catch (error) {
         next(error)
