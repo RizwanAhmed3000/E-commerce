@@ -1,4 +1,4 @@
-import {Order} from '../Models/Order.js'
+import { Order } from '../Models/Order.js'
 
 //====================  NEW ORDER =========================//
 export const createOrder = async (req, res, next) => {
@@ -51,17 +51,17 @@ export const deleteOrder = async (req, res, next) => {
 //GET USER
 // /user/find/:userId
 
-export const getCart = async (req, res, next) => {
+export const getOrders = async (req, res, next) => {
     try {
-        const cart = await Cart.findOne({ userId: req.params.userId });
-        !cart && res.status(404).send({
+        const orders = await Order.find({ userId: req.params.userId });
+        !orders && res.status(404).send({
             status: "Failed",
-            message: "Cart not found",
+            message: "Orders not found",
         });
         res.status(200).send({
             status: "Successfull",
-            message: "Cart Found",
-            data: cart
+            message: "Orders Found",
+            data: orders
         });
     } catch (error) {
         next(error)
@@ -70,13 +70,13 @@ export const getCart = async (req, res, next) => {
 
 //GET USER
 // /user/find
-export const getAllCarts = async (req, res, next) => {
+export const getAllOrders = async (req, res, next) => {
     try {
-        const carts = await Cart.find();
+        const orders = await Order.find();
         res.status(200).send({
             status: "Successfull",
-            message: "Carts Found",
-            data: carts
+            message: "Orders Found",
+            data: orders
         });
     } catch (error) {
         next(error)

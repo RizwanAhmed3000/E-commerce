@@ -1,6 +1,6 @@
 import express from 'express';
 import { verifyAdmin, verifyToken, verifyUser } from '../Utils/verifyToken.js';
-import { createOrder, updateOrder } from '../Controllers/orderControllers.js';
+import { createOrder, getAllOrders, getOrders, updateOrder } from '../Controllers/orderControllers.js';
 
 const orderRoutes = express.Router();
 
@@ -14,10 +14,10 @@ orderRoutes.put('/:cartId', verifyAdmin, updateOrder)
 orderRoutes.delete('/:cartId', verifyAdmin, deleteOrder)
 
 //======================= GET A PRODUCT ======================//
-// orderRoutes.get('/find/:userId', verifyUser, getCart)
+orderRoutes.get('/find/:userId', verifyUser, getOrders)
 
 //======================= GET ALL PRODUCTS ======================//
-// orderRoutes.get('/find', verifyAdmin, getAllCarts)
+orderRoutes.get('/find', verifyAdmin, getAllOrders)
 
 
 export default orderRoutes
