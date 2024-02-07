@@ -71,26 +71,15 @@ export const getCart = async (req, res, next) => {
 
 //GET USER
 // /user/find
-// export const getAllProducts = async (req, res, next) => {
-//     const queryNew = req.query.new;
-//     const queryCategory = req.query.category;
-//     try {
-
-//         let products;
-//         if (queryNew) {
-//             products = await Product.find().sort({ createdAt: -1 }).limit(5)
-//         } else if (queryCategory) {
-//             products = await Product.find({ categories: { $in: [queryCategory] } })
-//         } else {
-//             products = await Product.find();
-//         }
-
-//         res.status(200).send({
-//             status: "Successfull",
-//             message: "Products Found",
-//             data: products
-//         });
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+export const getAllCarts = async (req, res, next) => {
+    try {
+        const carts = await Cart.find();
+        res.status(200).send({
+            status: "Successfull",
+            message: "Carts Found",
+            data: carts
+        });
+    } catch (error) {
+        next(error)
+    }
+}
