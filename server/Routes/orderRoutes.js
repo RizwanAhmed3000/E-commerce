@@ -1,6 +1,6 @@
 import express from 'express';
 import { verifyAdmin, verifyToken, verifyUser } from '../Utils/verifyToken.js';
-import { createOrder, getAllOrders, getOrders, updateOrder } from '../Controllers/orderControllers.js';
+import { createOrder, getAllOrders, getIncome, getOrders, updateOrder } from '../Controllers/orderControllers.js';
 
 const orderRoutes = express.Router();
 
@@ -19,6 +19,7 @@ orderRoutes.get('/find/:userId', verifyUser, getOrders)
 //======================= GET ALL PRODUCTS ======================//
 orderRoutes.get('/find', verifyAdmin, getAllOrders)
 
-//this is a dummy commit for github
+//======================= GET MONTHLY INCOME ======================//
+orderRoutes.get('/income', verifyAdmin, getIncome)
 
 export default orderRoutes

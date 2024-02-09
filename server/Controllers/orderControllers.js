@@ -82,3 +82,38 @@ export const getAllOrders = async (req, res, next) => {
         next(error)
     }
 }
+
+export const getIncome = async (req, res, next) => {
+    const date = new Date();
+    const lastMonth = new Date(date.setMonth(date.getMonth() - 1))
+    const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1))
+
+    try {
+
+        const income = await Order.aggregate([
+            { $match: { createdAt: { $gte: previousMonth } } },
+            {
+                $project:
+                {
+                    month: { $month: "$createdAt" },
+                    sales: "$amount"
+                },
+            },
+            {
+                $group: {
+                    _id: "$month",
+                    total: { $sum: "$sales" }
+                }
+            }
+        ])
+        res.status(200).send({
+            status: "Successfull",
+            message: "Orders Found",
+            data: income
+        });
+    } catch (error) {
+        next(error)
+    }
+
+
+}
