@@ -1,6 +1,6 @@
 import express from 'express';
 import { verifyAdmin, verifyToken, verifyUser } from '../Utils/verifyToken.js';
-import { createOrder, getAllOrders, getIncome, getOrders, updateOrder } from '../Controllers/orderControllers.js';
+import { createOrder, deleteOrder, getAllOrders, getIncome, getOrders, updateOrder } from '../Controllers/orderControllers.js';
 
 const orderRoutes = express.Router();
 
