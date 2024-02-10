@@ -4,19 +4,19 @@ import { createOrder, deleteOrder, getAllOrders, getIncome, getOrders, updateOrd
 
 const orderRoutes = express.Router();
 
-//======================= CREATE PRODUCT ======================//
+//======================= CREATE ORDERS ======================//
 orderRoutes.post('/', verifyToken, createOrder)
 
-//======================= UPDATE PRODUCT ======================//
+//======================= UPDATE ORDERS ======================//
 orderRoutes.put('/:cartId', verifyAdmin, updateOrder)
 
-//======================= DELETE PRODUCT ======================//
+//======================= DELETE ORDERS ======================//
 orderRoutes.delete('/:cartId', verifyAdmin, deleteOrder)
 
-//======================= GET A PRODUCT ======================//
+//======================= GET A ORDERS ======================//
 orderRoutes.get('/find/:userId', verifyUser, getOrders)
 
-//======================= GET ALL PRODUCTS ======================//
+//======================= GET ALL ORDERS ======================//
 orderRoutes.get('/find', verifyAdmin, getAllOrders)
 
 //======================= GET MONTHLY INCOME ======================//

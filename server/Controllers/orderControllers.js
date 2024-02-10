@@ -1,6 +1,8 @@
 import { Order } from '../Models/Order.js'
 
 //====================  NEW ORDER =========================//
+// /order/
+
 export const createOrder = async (req, res, next) => {
     const newOrder = new Order(req.body);
     try {
@@ -16,8 +18,9 @@ export const createOrder = async (req, res, next) => {
 
 }
 
-//UPDATE USER
-// /user/:userId
+//================= UPDATE ORDER ======================//
+// /order/:cartId
+
 export const updateOrder = async (req, res, next) => {
     try {
         const updatedOrder = await Order.findByIdAndUpdate(req.params.cartId, {
@@ -33,8 +36,8 @@ export const updateOrder = async (req, res, next) => {
     }
 }
 
-//DELETE USER
-// /user/:userId
+//================= DELETE ORDER ======================//
+// /order/:cartId
 
 export const deleteOrder = async (req, res, next) => {
     try {
@@ -48,8 +51,8 @@ export const deleteOrder = async (req, res, next) => {
     }
 }
 
-//GET USER
-// /user/find/:userId
+//================= GET SINGLE ORDER ======================//
+// /order/find/:userId
 
 export const getOrders = async (req, res, next) => {
     try {
@@ -68,8 +71,9 @@ export const getOrders = async (req, res, next) => {
     }
 }
 
-//GET USER
-// /user/find
+//================= GET ALL ORDERS ======================//
+// /order/find
+
 export const getAllOrders = async (req, res, next) => {
     try {
         const orders = await Order.find();
@@ -83,13 +87,15 @@ export const getAllOrders = async (req, res, next) => {
     }
 }
 
+//================= GET MONTHLY INCOME ======================//
+// /order/income
+
 export const getIncome = async (req, res, next) => {
     const date = new Date();
     const lastMonth = new Date(date.setMonth(date.getMonth() - 1))
     const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1))
 
     try {
-
         const income = await Order.aggregate([
             { $match: { createdAt: { $gte: previousMonth } } },
             {
@@ -114,6 +120,4 @@ export const getIncome = async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-
-
 }
