@@ -35,7 +35,7 @@ export const verifyUser = async (req, res, next) => {
 
 export const verifyAdmin = async (req, res, next) => {
     verifyToken(req, res, () => {
-        // console.log(req.user, "====> req.user")
+        console.log(req.user, "====> req.user")
         if (req.user.isAdmin) {
             next()
         } else {
