@@ -11,6 +11,7 @@ import userRoutes from './Routes/userRoutes.js';
 import productRoutes from './Routes/productsRoutes.js';
 import cartRoutes from './Routes/cartRoutes.js';
 import orderRoutes from './Routes/orderRoutes.js';
+import paymentRoutes from './Routes/paymentRoutes.js';
 
 // ======================CONFIGURING ENV AND EXPRESS==================//
 dotenv.config();
@@ -30,6 +31,7 @@ app.use('/api/user', userRoutes)
 app.use('/api/product', productRoutes)
 app.use('/api/cart', cartRoutes)
 app.use('/api/order', orderRoutes)
+app.use('/api/payment', paymentRoutes)
 
 //=======================ERROR MIDDLEWARE=======================//
 
