@@ -5,7 +5,7 @@ import { paymentHandler } from '../Controllers/paymentController.js';
 const paymentRoutes = express.Router();
 
 //======================= CREATE ORDERS ======================//
-paymentRoutes.post('/checkout', paymentHandler)
+paymentRoutes.post('/create-checkout-session', paymentHandler)
 
 
 export default paymentRoutes
