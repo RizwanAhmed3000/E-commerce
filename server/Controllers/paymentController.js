@@ -17,6 +17,7 @@ export const paymentHandler = async (req, res, next) => {
         }
     ]
     const line_items = products.map((product) => (
+        //line item must be an array of objects(that are the products in your cart), must include price_data which must include currency,and product data(this will be displayed on the hosted srtipe checkout page)
         {
             price_data: {
                 currency: "usd",
