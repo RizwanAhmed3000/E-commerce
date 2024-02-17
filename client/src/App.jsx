@@ -5,6 +5,8 @@ import Products from './Pages/Products/Products';
 import Product from './Pages/Product/Product';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+import Login from './Pages/Login/Login';
+import Signup from './Pages/Signup/Signup';
 
 const Layout = () => {
   return (
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/signup",
+        element: <Signup />
       },
       {
         path: "/products/:id",

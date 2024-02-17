@@ -10,8 +10,8 @@ const ProductSchema = new Schema({
         type: String,
         required: true,
     },
-    image: {
-        type: String,
+    images: {
+        type: [String],
         required: true,
     },
     categories: {
@@ -19,16 +19,20 @@ const ProductSchema = new Schema({
         required: true,
     },
     size: {
-        type: String,
+        type: Array,
         required: true,
     },
     color: {
-        type: String,
+        type: Array,
     },
     price: {
         type: Number,
         required: true,
     },
+    inStock: {
+        type: Boolean,
+        default: true,
+    }
 
 }, { timestamps: true })
 
