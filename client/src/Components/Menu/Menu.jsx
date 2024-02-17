@@ -48,7 +48,9 @@ export default function BasicMenu({ side }) {
                         USD
                     </div>) : (
                         <div className="item">
-                            Home
+                            <Link className='link' to='/' style={{ textDecoration: "none", color: "inherit" }}>
+                                Home
+                            </Link>
                         </div>
                     )}
                 </MenuItem>
@@ -91,14 +93,20 @@ export default function BasicMenu({ side }) {
                             Accessories
                         </Link>
                     </div>) : (
-                        <div style={{ display: "none" }}></div>
+                        <div>
+                            <Link className='link' to='/login' style={{ textDecoration: "none", color: "inherit" }}>
+                                <PersonOutlineOutlinedIcon className='icon' />
+                            </Link>
+                        </div>
                     )}
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
                     {side === "Categories" ? (<div className="item">
                         <img src="/images/flag.png" alt="" />
                     </div>) : (
-                        <div style={{ display: "none" }}></div>
+                        <div>
+                            <FavoriteBorderOutlinedIcon className='icon' />
+                        </div>
                     )}
                 </MenuItem>
             </Menu>

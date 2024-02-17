@@ -61,7 +61,9 @@ const Navbar = () => {
                         <BasicMenu side='Menu' />
                     </div>
                     <div className="item">
-                        Home
+                        <Link className='link' to='/'>
+                            Home
+                        </Link>
                     </div>
                     <div className="item">
                         About
@@ -77,7 +79,9 @@ const Navbar = () => {
                             <SearchIcon className='icon' />
                         </div>
                         <div className="item none">
-                            <PersonOutlineOutlinedIcon className='icon' />
+                            <Link className='link' to='/login'>
+                                <PersonOutlineOutlinedIcon className='icon' />
+                            </Link>
                         </div>
                         <div className="item none">
                             <FavoriteBorderOutlinedIcon className='icon' />
