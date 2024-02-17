@@ -19,7 +19,7 @@ const ProductSchema = new Schema({
         required: true,
     },
     size: {
-        type: [Number],
+        type: [String],
         required: true,
     },
     color: {
@@ -33,8 +33,8 @@ const ProductSchema = new Schema({
         type: Boolean,
         default: true,
     },
-    tags:{
-        type: Array,
+    tags: {
+        type: [String],
     }
 
 }, { timestamps: true })
