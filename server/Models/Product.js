@@ -15,15 +15,15 @@ const ProductSchema = new Schema({
         required: true,
     },
     categories: {
-        type: Array,
+        type: [String],
         required: true,
     },
     size: {
-        type: Array,
+        type: [Number],
         required: true,
     },
     color: {
-        type: Array,
+        type: [String],
     },
     price: {
         type: Number,
@@ -32,6 +32,9 @@ const ProductSchema = new Schema({
     inStock: {
         type: Boolean,
         default: true,
+    },
+    tags:{
+        type: Array,
     }
 
 }, { timestamps: true })
