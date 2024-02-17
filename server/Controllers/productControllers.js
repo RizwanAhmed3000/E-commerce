@@ -74,6 +74,7 @@ export const getProduct = async (req, res, next) => {
 export const getAllProducts = async (req, res, next) => {
     const queryNew = req.query.new;
     const queryCategory = req.query.category;
+    const queryTags = req.query.tag;
     try {
 
         let products;
@@ -81,6 +82,8 @@ export const getAllProducts = async (req, res, next) => {
             products = await Product.find().sort({ createdAt: -1 }).limit(5)
         } else if (queryCategory) {
             products = await Product.find({ categories: { $in: [queryCategory] } })
+        } else if (queryTags) {
+            products = await Product.find({ tags: { $in: [queryTags] } }).limit(4)
         } else {
             products = await Product.find();
         }
