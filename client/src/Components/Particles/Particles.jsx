@@ -73,15 +73,15 @@ const ParticlesApp = () => {
                     outModes: {
                         default: "bounce",
                     },
-                    random: false,
-                    speed: 6,
+                    random: true,
+                    speed: 2,
                     straight: false,
                 },
                 number: {
                     density: {
                         enable: true,
                     },
-                    value: 80,
+                    value: 100,
                 },
                 opacity: {
                     value: 0.5,
