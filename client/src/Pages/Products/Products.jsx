@@ -8,10 +8,11 @@ const Products = () => {
     const categoryId = +(useParams().id)
     const [maxPrice, setMaxPrice] = useState(1000)
     const [sort, setSort] = useState(null)
+    const [data, setData] = useState(null)
     const location = useLocation()
     // console.log(location.pathname.split('/')[2], "===> location")
     const category = location.pathname.split('/')[2]
-    console.log(category)
+    // console.log(category)
 
     useEffect(() => {
         console.log("useEffect working");
@@ -19,7 +20,8 @@ const Products = () => {
         const fetchData = async () => {
             try {
                 const apiRes = await axios.get(`http://localhost:8800/api/product/find?category=${category}`)
-                console.log(apiRes, '>>>> api res')
+                // console.log(apiRes.data.data, '>>>> api res')
+                setData(apiRes.data.data)
             } catch (error) {
                 console.log(error)
             }
@@ -77,7 +79,7 @@ const Products = () => {
             </div>
             <div className="right">
                 <img src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" className='catImg' />
-                <List categoryId={categoryId} maxPrice={maxPrice} sort={setSort} />
+                <List data={data} categoryId={categoryId} maxPrice={maxPrice} sort={setSort} />
             </div>
         </div>
     )
