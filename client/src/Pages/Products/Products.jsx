@@ -1,12 +1,31 @@
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import List from '../../Components/List/List'
 import './products.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from "axios"
 
 const Products = () => {
     const categoryId = +(useParams().id)
     const [maxPrice, setMaxPrice] = useState(1000)
     const [sort, setSort] = useState(null)
+    const location = useLocation()
+    // console.log(location.pathname.split('/')[2], "===> location")
+    const category = location.pathname.split('/')[2]
+    console.log(category)
+
+    useEffect(() => {
+        console.log("useEffect working");
+
+        const fetchData = async () => {
+            try {
+                const apiRes = await axios.get(`http://localhost:8800/api/product/find?category=${category}`)
+                console.log(apiRes, '>>>> api res')
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData()
+    }, [category])
 
     return (
         <div className='products'>

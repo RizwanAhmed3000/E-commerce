@@ -12,6 +12,7 @@ import BasicMenu from '../Menu/Menu';
 const Navbar = () => {
 
     const [openCart, setOpenCart] = useState(false);
+    const user = false;
 
     return (
         <div className='navbar'>
@@ -79,9 +80,13 @@ const Navbar = () => {
                             <SearchIcon className='icon' />
                         </div>
                         <div className="item none">
-                            <Link className='link' to='/login'>
-                                <PersonOutlineOutlinedIcon className='icon' />
-                            </Link>
+                            {
+                                user ? "username" : (
+                                    <Link className='link' to='/login'>
+                                        <PersonOutlineOutlinedIcon className='icon' />
+                                    </Link>
+                                )
+                            }
                         </div>
                         <div className="item none">
                             <FavoriteBorderOutlinedIcon className='icon' />

@@ -22,7 +22,10 @@ const PORT = process.env.PORT;
 app.use(cookieParser())
 app.use(express.json())
 app.use(morgan('common'))
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: "http://localhost:3000",
+}))
 
 // =======================ROUTES=======================//
 

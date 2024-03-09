@@ -18,6 +18,8 @@ const Layout = () => {
   )
 }
 
+const user = false
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,11 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: user ? <Home /> : <Login />
       },
       {
         path: "/signup",
-        element: <Signup />
+        element: user ? <Home /> : <Signup />
       },
       {
         path: "/products/:id",

@@ -6,7 +6,7 @@ import Contact from '../../Components/Contact/Contact'
 import ParticlesComp from '../../Components/Particles/Particles'
 
 const Home = () => {
-    console.log("first")
+    // console.log("first")
     return (
         <div className='home'>
             <Slider />
