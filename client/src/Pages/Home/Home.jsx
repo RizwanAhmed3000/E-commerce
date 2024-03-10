@@ -7,6 +7,7 @@ import ParticlesComp from '../../Components/Particles/Particles'
 
 const Home = () => {
     // console.log("first")
+    // error here
     return (
         <div className='home'>
             <Slider />
